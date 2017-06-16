@@ -12,4 +12,4 @@ add_executable(simple_cam ${src})
 
 target_include_directories(simple_cam PUBLIC ${SDL2_INCLUDE_DIRS})
 target_link_libraries(simple_cam ${LD_FLAGS})
-target_compile_options(simple_cam PUBLIC -w) #omit warnings
+# target_compile_options(simple_cam PUBLIC -w) #omit warnings
