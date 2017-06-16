@@ -111,6 +111,8 @@ static void *v4l2_streaming(void *arg) {
         (*handler)(v4l2_ubuffers[buf.index].start,
                    v4l2_ubuffers[buf.index].length);
 
+      buf.type = V4L2_BUF_TYPE_VIDEO_CAPTURE;
+      buf.memory = V4L2_MEMORY_MMAP;
       if (-1 == ioctl(fd, VIDIOC_QBUF, &buf)) {
         fprintf(stderr, "VIDIOC_QBUF failure\n");
         return NULL;
