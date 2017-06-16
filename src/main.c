@@ -66,7 +66,12 @@ static void *v4l2_streaming(void *arg) {
     return NULL;
   }
 
-  sdlRenderer = SDL_CreateRenderer(sdlScreen, -1, 0);
+  sdlRenderer = SDL_CreateRenderer(
+      sdlScreen, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
+  if (sdlRenderer == NULL) {
+    fprintf(stderr, "SDL_CreateRenderer Error\n");
+    return NULL;
+  }
   sdlTexture =
       SDL_CreateTexture(sdlRenderer, SDL_PIXELFORMAT_YUY2,
                         SDL_TEXTUREACCESS_STREAMING, IMAGE_WIDTH, IMAGE_HEIGHT);
