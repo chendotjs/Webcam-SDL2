@@ -24,6 +24,7 @@ extern int v4l2_sfmt(int fd, uint32_t pfmt);
 extern int v4l2_gfmt(int fd);
 extern int v4l2_mmap(int fd);
 extern int v4l2_munmap();
+extern int v4l2_sfps(int fd, int fps);
 extern int v4l2_streamon(int fd);
 extern int v4l2_streamoff(int fd);
 

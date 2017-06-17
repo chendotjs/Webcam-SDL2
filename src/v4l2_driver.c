@@ -29,7 +29,7 @@ int v4l2_open(char *device) {
     return -1;
   } else
     printf("%s is a character device\n", device);
-  return open(device, O_RDWR);
+  return open(device, O_RDWR | O_NONBLOCK, 0);
 }
 
 int v4l2_close(int fd) { return close(fd); }
@@ -99,6 +99,19 @@ int v4l2_gfmt(int fd) {
   printf("pix.height:\t\t%d\n", fmt.fmt.pix.height);
   printf("pix.width:\t\t%d\n", fmt.fmt.pix.width);
   printf("pix.field:\t\t%d\n", fmt.fmt.pix.field);
+  return 0;
+}
+
+int v4l2_sfps(int fd, int fps) {
+  struct v4l2_streamparm setfps;
+  memset(&setfps, 0, sizeof(setfps));
+  setfps.type = V4L2_BUF_TYPE_VIDEO_CAPTURE;
+  setfps.parm.capture.timeperframe.numerator = 1;
+  setfps.parm.capture.timeperframe.denominator = fps;
+  if (ioctl(fd, VIDIOC_S_PARM, &setfps) == -1) {
+    fprintf(stderr, "Unable to set framerate\n");
+    return -1;
+  }
   return 0;
 }
 

@@ -82,17 +82,19 @@ static void *v4l2_streaming(void *arg) {
   void (*handler)(void *pframe, int length) =
       ((struct streamHandler *)(arg))->framehandler;
 
-  struct timeval tv = {.tv_sec = 1, .tv_usec = 0};
   fd_set fds;
   struct v4l2_buffer buf;
   while (!thread_exit_sig) {
     int ret;
     FD_ZERO(&fds);
     FD_SET(fd, &fds);
+    struct timeval tv = {.tv_sec = 1, .tv_usec = 0};
     ret = select(fd + 1, &fds, NULL, NULL, &tv);
     if (-1 == ret) {
-      continue;
+      fprintf(stderr, "select error\n");
+      return NULL;
     } else if (0 == ret) {
+      fprintf(stderr, "timeout waiting for frame\n");
       continue;
     }
     if (FD_ISSET(fd, &fds)) {
@@ -161,6 +163,11 @@ int main(int argc, char const *argv[]) {
 
   if (v4l2_gfmt(video_fildes) == -1) {
     perror("v4l2_gfmt");
+    goto exit_;
+  }
+
+  if (v4l2_sfps(video_fildes, 30) == -1) {
+    perror("v4l2_sfps");
     goto exit_;
   }
 
