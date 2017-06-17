@@ -166,9 +166,8 @@ int main(int argc, char const *argv[]) {
     goto exit_;
   }
 
-  if (v4l2_sfps(video_fildes, 30) == -1) {
+  if (v4l2_sfps(video_fildes, 30) == -1) { // no fatal error
     perror("v4l2_sfps");
-    goto exit_;
   }
 
   if (v4l2_mmap(video_fildes) == -1) {

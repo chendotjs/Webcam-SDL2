@@ -30,6 +30,8 @@ make
 
 ## References
 
+[fswebcam](https://github.com/fsphil/fswebcam)
+
 [CAPTURING A WEBCAM STREAM USING V4L2](https://jwhsmith.net/2014/12/capturing-a-webcam-stream-using-v4l2/)
 
 [最简单的视音频播放示例1：总述](http://blog.csdn.net/leixiaohua1020/article/details/40246783)

@@ -109,6 +109,7 @@ int v4l2_sfps(int fd, int fps) {
   setfps.parm.capture.timeperframe.numerator = 1;
   setfps.parm.capture.timeperframe.denominator = fps;
   if (ioctl(fd, VIDIOC_S_PARM, &setfps) == -1) {
+    // no fatal error ,just put err msg
     fprintf(stderr, "Unable to set framerate\n");
     return -1;
   }
