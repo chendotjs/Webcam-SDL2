@@ -4,6 +4,8 @@
 
 This is a simple demo which illustrates how to capture video(or image if you like) using `v4l2` and to display with [SDL2](https://www.libsdl.org/).
 
+Currently, most webcams supports YUYV422 input format. So the default input format is set to YUYV422. You can modify the input parameter both for `v2lc` and `sdl2` to match your webcam.
+
 ## Usage
 
 Both `Makefile` and `CMakeLists` are provided.
@@ -27,6 +29,7 @@ cmake ../src
 make
 ./simple_cam 640 480 /dev/video0
 ```
+![](./capture-example.gif)
 
 ## References
 
