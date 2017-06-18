@@ -135,7 +135,7 @@ int main(int argc, char const *argv[]) {
     exit(0);
   }
 
-  if (argc == 3) {
+  if (argc > 2) {
     IMAGE_WIDTH = atoi(argv[1]);
     IMAGE_HEIGHT = atoi(argv[2]);
   }
