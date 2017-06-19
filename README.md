@@ -2,9 +2,18 @@
 
 ## Intro
 
-This is a simple demo which illustrates how to capture video(or image if you like) using `v4l2` and to display with [SDL2](https://www.libsdl.org/).
+This is a simple example which illustrates how to capture video(or image if you like) using `v4l2` and to display with [SDL2](https://www.libsdl.org/).
 
-Currently, most webcams supports YUYV422 input format. So the default input format is set to YUYV422. You can modify the input parameter both for `v2lc` and `sdl2` to match your webcam.
+Currently, most webcams supports `YUYV422` output format. So the default output format is set to `YUYV422`. You can modify the format parameter both for `v2lc` and `sdl2` to be compatible with your webcam.
+
+To list support formats of your webcam, try following commands:
+```bash
+v4l2-ctl --list-formats-ext
+```
+or if `ffmpeg` installed
+```bash
+ffmpeg -f v4l2 -list_formats all -i /dev/video0
+```
 
 ## Usage
 
