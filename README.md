@@ -42,6 +42,8 @@ make
 
 ## References
 
+[v4l2 + sdl2](http://chendotjs.me/2017/06/24/v4l2%E9%85%8D%E5%90%88SDL2%E6%98%BE%E7%A4%BA%E6%91%84%E5%83%8F%E5%A4%B4%E8%A7%86%E9%A2%91/)
+
 [fswebcam](https://github.com/fsphil/fswebcam)
 
 [CAPTURING A WEBCAM STREAM USING V4L2](https://jwhsmith.net/2014/12/capturing-a-webcam-stream-using-v4l2/)
