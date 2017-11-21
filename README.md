@@ -1,5 +1,7 @@
 # Webcam-SDL2
 
+[![Build Status](https://travis-ci.org/chendotjs/Webcam-SDL2.svg?branch=master)](https://travis-ci.org/chendotjs/Webcam-SDL2)
+
 ## Intro
 
 This is a simple example which illustrates how to capture video(or image if you like) using `v4l2` and to display with [SDL2](https://www.libsdl.org/).
@@ -41,8 +43,6 @@ make
 ![](./capture-example.gif)
 
 ## References
-
-[v4l2 + sdl2](http://chendotjs.me/2017/06/24/v4l2%E9%85%8D%E5%90%88SDL2%E6%98%BE%E7%A4%BA%E6%91%84%E5%83%8F%E5%A4%B4%E8%A7%86%E9%A2%91/)
 
 [fswebcam](https://github.com/fsphil/fswebcam)
 
