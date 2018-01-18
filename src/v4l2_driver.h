@@ -17,9 +17,9 @@ struct v4l2_ubuffer {
 extern struct v4l2_ubuffer *v4l2_ubuffers;
 
 /* functions */
-extern int v4l2_open(char *device);
+extern int v4l2_open(const char *device);
 extern int v4l2_close(int fd);
-extern int v4l2_querycap(int fd, char *device);
+extern int v4l2_querycap(int fd, const char *device);
 extern int v4l2_sfmt(int fd, uint32_t pfmt);
 extern int v4l2_gfmt(int fd);
 extern int v4l2_mmap(int fd);

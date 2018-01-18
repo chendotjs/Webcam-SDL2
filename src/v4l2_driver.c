@@ -17,7 +17,7 @@ int IMAGE_WIDTH = 640;
 int IMAGE_HEIGHT = 480;
 struct v4l2_ubuffer *v4l2_ubuffers;
 
-int v4l2_open(char *device) {
+int v4l2_open(const char *device) {
   struct stat st;
   memset(&st, 0, sizeof(st));
   if (stat(device, &st) == -1) {
@@ -34,7 +34,7 @@ int v4l2_open(char *device) {
 
 int v4l2_close(int fd) { return close(fd); }
 
-int v4l2_querycap(int fd, char *device) {
+int v4l2_querycap(int fd, const char *device) {
   struct v4l2_capability cap;
   if (ioctl(fd, VIDIOC_QUERYCAP, &cap) == -1) {
     printf("Error opening device %s: unable to query device.\n", device);

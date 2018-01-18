@@ -128,7 +128,7 @@ static void *v4l2_streaming(void *arg) {
 }
 
 int main(int argc, char const *argv[]) {
-  char *device = "/dev/video0";
+  const char *device = "/dev/video0";
 
   if (argc == 2 && (strchr(argv[1], 'h') != NULL)) {
     print_help();
